@@ -1,0 +1,24 @@
+server:
+  port: 8001
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+    #ip-address: 192.168.0.176
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://user:password@${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: true
+security:
+  basic:
+    enabled: true
+  user:
+    name: tony
+    password: 123456
+spring:
+  cloud:
+    inetutils:
+      preferred-networks: 192.168.0.176

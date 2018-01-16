@@ -1,0 +1,16 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: eureka-client-demo
+  cloud:
+    inetutils:
+      preferred-networks: 192.168.0.176
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.inetutils.preferred-networks:${server.port}}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://tony:123456@localhost:8001/eureka
