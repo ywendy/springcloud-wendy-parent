@@ -4,7 +4,6 @@ server:
     accesslog:
       enabled: true
       directory: ./logs
-
 spring:
   profiles:
     active: dev
@@ -35,3 +34,10 @@ spring:
 mybatis:
   mapper-locations:     classpath:mapper/*Mapper.xml
   type-aliases-package: cn.com.yooeee.user.entry
+eureka:
+  client:
+   instance:
+      prefer-ip-address: true
+      instance-id: ${spring.application.name}:${spring.cloud.inetutils.preferred-networks:${server.port}}:${server.port}
+   service-url:
+      defaultZone: http://tony:123456@localhost:8001/eureka
