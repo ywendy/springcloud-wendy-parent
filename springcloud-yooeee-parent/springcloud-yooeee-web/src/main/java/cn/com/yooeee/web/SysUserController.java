@@ -1,6 +1,9 @@
 package cn.com.yooeee.web;
 
 import cn.com.yooeee.service.SysUserService;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,8 +31,8 @@ public class SysUserController {
 
 
     @RequestMapping("/sys/user/list")
-    public List<Map<String,Object>> list(@RequestParam("pageNum") Integer pageNum, @RequestParam("pageSize") Integer pageSize){
-        List<Map<String,Object>> page =  sysUserService.findList(pageNum,pageSize);
+    public Map<String, Object> list(@RequestParam("pageNum") Integer pageNum, @RequestParam("pageSize") Integer pageSize){
+        Map<String, Object> page =  sysUserService.findList(pageNum,pageSize);
 
         return page;
     }
